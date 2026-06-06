@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getTasks, createTask, deleteTask, toggleTaskStatus, updateTask } from "../services/taskService";
 import { useNavigate } from "react-router-dom";
 import "../styles/dashboard.css";
+import logo from "/task-manager-logo.png"
 
 function Dashboard() {
 
@@ -206,7 +207,11 @@ function Dashboard() {
 
 
             <div className="dashboard-header">
-
+                <img
+                    src={logo}
+                    alt="Task Manager"
+                    width="50"
+                />
                 <div>
                     <h1>Task Manager</h1>
                     <p>Welcome {user?.name}</p>
