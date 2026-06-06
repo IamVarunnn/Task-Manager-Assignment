@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { registerUser }
-from "../services/authService";
+import { Link,useNavigate } from "react-router-dom";
+import { registerUser } from "../services/authService";
 import "../styles/auth.css";
 
 
@@ -11,6 +11,7 @@ function Register() {
         email: "",
         password: ""
     });
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({
@@ -39,10 +40,11 @@ function Register() {
 
             setError("");
 
-            const data =
-                await registerUser(formData);
+            await registerUser(formData);
 
-            console.log(data);
+            alert("Registration Successful");
+
+            navigate("/login");
 
         } catch (error) {
 
@@ -94,9 +96,9 @@ function Register() {
 
             <p>
                 Already have an account?
-                <a href="/login">
+                <Link to="/login">
                     Login
-                </a>
+                </Link>
             </p>
 
         </div>
